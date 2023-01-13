@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     domains: ['i.ibb.co'],
   },
-  // basePath: '/app',
+  basePath: '/app',
 }
 
 module.exports = nextConfig

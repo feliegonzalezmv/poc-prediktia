@@ -1,0 +1,142 @@
+@import "./fonts.scss";
+@import "./variables.scss";
+
+
+
+.howManyTable {
+  width: 100%;
+  background: $white;
+  border-radius: 12px;
+  border-collapse: collapse;
+
+  thead {
+    height: 51px;
+    border-bottom: solid 1px $gray2;
+
+    th {
+      font-family: $Figtree;
+      font-size: remcalc(16px);
+      font-weight: 600;
+      line-height: 19px;
+      text-align: left;
+
+      &:first-child {
+        padding-left: 16px;
+      }
+      svg {
+        margin-left: 5px;
+      }
+      &.suggest{
+        width: 100px;
+      }
+      &.probability{
+        width: 200px;
+      }
+      &.price{
+        width: 140px;
+      }
+      &.margin{
+        width: 120px;
+      }
+      &.sizecurves{
+        width: 220px;
+      }
+    }
+  }
+  tbody {
+
+    tr {
+      height: 76px;
+
+      &:nth-child(even){
+        background: $gray1;
+
+        td{
+          background: $gray1;
+        }
+      }
+
+      td {
+        color: $gray5;
+        font-family: $Figtree;
+        font-size: remcalc(14px);
+        font-weight: 400;
+        line-height: 17px;
+
+        &.thumb{
+          text-align: center;
+
+          img{
+            border-radius: 12px;
+          }
+          
+          @media (min-width: 1560px) {
+            padding-left: 16px;
+            text-align: left;
+          }
+        }
+        &.suggested{
+          text-align: right;
+          padding-right: 10px;
+        }
+        &.actions{
+          height: 76px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+        }
+        // .thumb {
+        //   border: 1px solid $gray2 !important;
+        //   border-radius: 12px !important;
+        // }
+        .pen {
+          width: 24px;
+          height: 24px;
+          background: $LightGreen;
+          border: none;
+          border-radius: 7.2px;
+          cursor: pointer;
+          line-height: 24px;
+          margin-left: 8px;
+          text-align: center;
+        }
+        .edit {
+          width: 62px;
+          height: 35px;
+          background: transparent;
+          border: 1px solid $DarkGreen;
+          border-radius: 50px;
+          color: $DarkGreen;
+          cursor: pointer;
+          font-family: $Figtree;
+          font-size: remcalc(16px);
+          font-weight: 600;
+          line-height: 30px;
+          text-align: center;
+        }        
+        .probability{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-right: 15px;
+
+          > div{
+            text-transform: capitalize;
+          }
+        }
+
+        &.pop {
+          a {
+            border-bottom: solid 1px $gray5;
+            cursor: pointer;
+          }
+        }
+      }
+      .finalQuantity {
+        text-align: right;
+        padding-right: 20px;
+      }
+    }
+  }
+}

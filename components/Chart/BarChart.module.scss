@@ -1,0 +1,55 @@
+@import "../../styles/fonts.scss";
+@import "../../styles/variables.scss";
+
+.barChartContainer {  
+    .modalHead{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        h4{
+            color: $gray5;
+            font-family: $Figtree;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            margin: 0 0;
+        }
+        .botones{
+            display: flex;
+            align-items: center;
+            gap: 0 6.4px;
+
+            .edit{
+                height: 35px;
+                width: 62px;
+                left: 0px;
+                top: 0px;
+                border-radius: 50px;
+                background: transparent;
+                border: 1px solid $DarkGreen;
+                color: $DarkGreen;
+                cursor: pointer;
+                font-family: $Figtree;
+                font-size: remcalc(16px);
+                font-weight: 500;
+                line-height: 30px;
+                text-align: center;
+            }
+            .square{
+                width: 32px;
+                height: 32px;
+                background: $LightGreen;
+                border-radius: 9.6px;
+                line-height: 32px;
+                text-align: center;
+
+                svg{
+                    fill: $DarkGreen;
+                }
+            }
+        }
+    }
+}
+

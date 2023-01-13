@@ -1,0 +1,26 @@
+@import "../../styles/fonts.scss";
+@import "../../styles/variables.scss";
+
+.sell {
+  width: 120px;
+  height: 10.56px;
+  background: $gray2;
+  border-radius: 20px;
+  position: relative;
+
+  div {
+    height: 100%;
+    border-radius: 20px;
+    position: absolute;
+
+    &.high{
+      background: $DarkGreen;
+    }
+    &.medium{
+      background: $Yellow;
+    }
+    &.low{
+      background: $red;
+    }
+  }
+}

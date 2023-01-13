@@ -1,0 +1,394 @@
+@import "./fonts.scss";
+@import "./variables.scss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font-family: $Figtree;
+  color: #3c3a45;
+  background: $bodybg;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.d-flex{
+  display: flex;
+}
+.container {
+  width: 100%;
+
+  .row {
+    display: flex;
+    margin-left: remcalc(32px);
+    margin-right: remcalc(32px);
+  }
+}
+.g-prediktia {
+  display: flex;
+}
+
+// nav sidebar
+.sidebar {
+  background: $white;
+  border-right: 1.5px solid $gray2;
+  width: 88px;
+  height: 100vh;
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+
+  .brand {
+    height: 70px;
+    border-bottom: 1px solid $gray2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu {
+    margin: 85px auto 0;
+
+    a {
+      &:nth-child(5) {
+        .item-menu {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    .item-menu {
+      width: 44px;
+      height: 44px;
+      background: $gray1;
+      border: 1px solid $gray2;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: ease-in-out 0.5s;
+
+      svg {
+        fill: $gray5;
+        width: 18px;
+        transition: ease-in-out 0.5s;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        width: 1px;
+        height: 30px;
+        background: $gray2;
+      }
+      &.active,
+      &:hover {
+        background: $LightGreen;
+        border: 1px solid $MediumGreen;
+
+        svg {
+          fill: $DarkGreen;
+        }
+      }
+    }
+  }
+  .configuration {
+    margin: auto auto 20px;
+
+    .item-config {
+      &:first-child {
+        margin-bottom: 34px;
+      }
+    }
+  }
+}
+
+//content
+.content {
+  margin-left: 88px;
+  width: calc(100% - 88px);
+
+  header {
+    height: 70px;
+    border-bottom: 1px solid $gray2;
+
+    .navigation {
+      height: 100%;
+      align-items: center;
+      justify-content: space-between;
+
+      .search {
+        display: flex;
+        align-items: center;
+        svg {
+          display: block;
+          fill: $gray3;
+        }
+        .field {
+          height: 40px;
+          background: transparent;
+          border: none;
+          color: $gray5;
+          display: block;
+          margin-left: 10px;
+
+          &::placeholder {
+            color: $gray5;
+            font-family: $Figtree;
+            font-size: remcalc(16px);
+            font-weight: 400;
+            line-height: 19px;
+          }
+          &:focus-visible {
+            outline: none;
+          }
+        }
+      }
+      .userBar {
+        display: flex;
+        align-items: center;
+
+        > a {
+          display: block;
+
+          svg {
+            fill: $gray3;
+          }
+        }
+        .profile {
+          display: flex;
+          align-items: center;
+          margin-left: 20px;
+
+          .circle {
+            width: 30px;
+            height: 30px;
+            background: $white;
+            border-radius: 50%;
+          }
+          p {
+            color: #344563;
+            font-family: $Figtree;
+            font-size: remcalc(16px);
+            font-weight: 400;
+            line-height: 19px;
+            margin: 0 12px 0 8px;
+          }
+          svg {
+            fill: $gray3;
+          }
+        }
+      }
+    }
+  }
+}
+
+// what page
+.portfolio {
+  justify-content: space-between;
+  margin-top: 16px;
+
+  h2 {
+    color: $gray5;
+    font-family: $Figtree;
+    font-size: remcalc(24px);
+    font-weight: 700;
+    line-height: 29px;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  .optimization {
+    h5 {
+      color: $gray4;
+      font-family: $Figtree;
+      font-size: remcalc(12px);
+      font-weight: 500;
+      line-height: 14px;
+      margin: 0;
+    }
+  }
+  .brand-catalog {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    svg {
+      margin: 0 15px;
+    }
+  }
+}
+.instock {
+  height: auto;
+  margin-bottom: 16px;
+}
+.tabInformation {
+  margin: 28px 0 0;
+
+  .collapse-sections {
+    h4 {
+      font-family: $Figtree;
+      font-size: remcalc(18px);
+      font-weight: 700;
+      line-height: 22px;
+      color: $gray3;
+      cursor: pointer;
+      margin: 0 24px 4px 0;
+      transition: ease-in-out 0.5s;
+    }
+    &.active,
+    &:hover {
+      h4 {
+        color: $gray5;
+        border-bottom: solid 3px $DarkGreen;
+      }
+    }
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.popup-content {
+  margin: auto;
+  padding: 16px !important;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 8px 14px 10px rgba(224, 229, 237, 0.25);
+}
+
+//progress
+.progress {
+  margin-top: 2px;
+
+  .forcast {
+    display: flex;
+
+    div {
+      width: 11px;
+      height: 11px;
+      margin-right: 1px;
+
+      &.rd {
+        background: $red;
+
+        &.lgt {
+          background: $LightRed;
+        }
+      }
+      &.yw {
+        background: $Yellow;
+
+        &.lgt {
+          background: $LightYellow;
+        }
+      }
+      &.gr {
+        background: $DarkGreen;
+
+        &.lgt {
+          background: $LightGreen;
+        }
+      }
+
+      &:first-child {
+        border-radius: 8.8px 0px 0px 8.8px;
+      }
+      &:last-child {
+        border-radius: 0px 8.8px 8.8px 0px;
+      }
+    }
+  }
+}
+
+.margin-left-2rem {
+  margin-left: 2rem;
+}
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 120px;
+  max-width: 90%;
+}
+
+.paginator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0 20px;
+  margin: 20px 0 80px;
+
+  p {
+    color: $gray4;
+    font-family: $Figtree;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 0;
+  }
+  .prev {
+    background: none;
+    border: none;
+    color: $gray4;
+    cursor: pointer;
+    font-family: $Figtree;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 10px;
+
+    svg {
+      width: 6px;
+      fill: $gray4;
+      transform: rotate(180deg);
+      margin-right: 8px;
+    }
+  }
+  .next {
+    width: 69px;
+    height: 23px;
+    background: #185543;
+    border: none;
+    border-radius: 20px;
+    color: $white;
+    font-family: $Figtree;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 10px;
+
+    svg {
+      width: 6px;
+      fill: $white;
+      margin-left: 8px;
+    }
+  }
+}
+
+.swiper {
+  margin-left: unset !important;
+  margin-right: unset !important;
+  width: 100%;
+}
+
+.swiper-slide {
+  width: 200px !important;
+}
+
+.swiper-button-lock {
+  display: flex !important;
+}

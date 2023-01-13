@@ -1,0 +1,199 @@
+@import "./fonts.scss";
+@import "./variables.scss";
+
+.rank {
+  flex: 0 0 auto;
+  width: 256px;
+  background: $LightGreen;
+  border-right: 3.5px solid $gray2;
+  border-radius: 12px 0 0 12px;
+
+  .Tstock {
+    width: 200px;
+    margin: 0 auto;
+  }
+  .card {
+    margin: 16px auto;
+
+    .Cod {
+      color: $DarkGreen;
+      font-family: "Figtree";
+      font-weight: 700;
+      font-size: remcalc(12px);
+      line-height: 14px;
+    }
+  }
+}
+.Tstock {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  .stock {
+    position: relative;
+
+    h3 {
+      font-family: $Figtree;
+      font-size: remcalc(20px);
+      font-weight: 700;
+      line-height: 24px;
+      margin: 24px 0 0;
+    }
+    svg {
+      position: absolute;
+      right: -15px;
+      top: 45%;
+    }
+  }
+  .settings {
+    .square {
+      height: 40px;
+      width: 40px;
+      border: 1px solid $gray2;
+      border-radius: 12px;
+      text-align: center;
+      line-height: 43px;
+
+      svg {
+        fill: $DarkGreen;
+      }
+    }
+  }
+}
+.swipers {
+  flex: 0 0 auto;
+  width: calc(100% - 256px);
+  background: $white;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  flex-direction: column;
+
+  .Tstock {
+    width: 85%;
+    margin: 0 auto;
+
+    .settings {
+      .square {
+        height: 40px;
+        width: 40px;
+        background: $LightGreen;
+        border: 1px solid $LightGreen;
+        border-radius: 12px;
+        text-align: center;
+        line-height: 43px;
+
+        svg {
+          fill: $DarkGreen;
+        }
+      }
+    }
+  }
+  .card {
+    .select {
+      position: relative;
+
+      .selected {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 99;
+
+        svg {
+          fill: $gray3;
+        }
+        &:hover {
+          svg {
+            fill: $DarkGreen;
+          }
+        }
+      }
+    }
+  }
+}
+.card {
+  width: 200px;
+  height: 277px;
+  background: $white;
+  border: 1px solid $gray2;
+  border-radius: 12px;
+  margin: 16px auto;
+  overflow: hidden;
+
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px 8px 0px 0px;
+  }
+  .infoDiv {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+
+    p {
+      margin: 0;
+    }
+    .skuTitle,
+    .skuCod {
+      color: $gray5;
+      font-family: $Figtree;
+      font-weight: 500;
+      font-size: remcalc(14px);
+      line-height: 17px;
+      text-transform: uppercase;
+    }
+    .titleInfo {
+      color: $gray3;
+      font-family: $Figtree;
+      font-weight: 500;
+      font-size: remcalc(12px);
+      line-height: 14px;
+    }
+    .priceCod {
+      color: $gray3;
+      font-family: $Figtree;
+      font-weight: 700;
+      font-size: remcalc(12px);
+      line-height: 14px;
+    }
+    &:not(:first-child) {
+      margin-top: 5px;
+    }
+  }
+}
+.cardSelected {
+  border-color: $DarkGreen;
+
+  svg {
+    fill: $DarkGreen !important;
+  }
+}
+.analyzePrediktionButton {
+  width: 185px;
+  height: 39px;
+  background: $HardGreen;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0px 8px 14px 10px rgba(224, 229, 237, 0.25);
+  color: $white;
+  cursor: pointer;
+  font-family: $Figtree;
+  font-weight: 500;
+  font-size: remcalc(16px);
+  position: fixed;
+  bottom: 50px;
+  right: 32px;
+  text-align: center;
+  z-index: 2;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  margin: 0 30px;
+}
+
+.messageContainer {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}

@@ -1,0 +1,110 @@
+@import "../../styles/fonts.scss";
+@import "../../styles/variables.scss";
+
+.quartiles {
+  width: 100%;
+  height: remcalc(165px);
+  background-color: $white;
+  box-shadow: 0px 8px 14px 10px rgba(224, 229, 237, 0.25);
+  border-radius: 12px;
+  margin: 24px 0;
+  padding: 16px;
+  z-index: 20;
+
+  h2 {
+    color: $gray5;
+    font-family: $Figtree;
+    font-size: remcalc(24px);
+    font-weight: 700;
+    line-height: 29px;
+    margin: 0 0 16px;
+  }
+  .download {
+    width: fit-content;
+    height: 35px;
+    background: transparent;
+    border: 1px solid $DarkGreen;
+    border-radius: 50px;
+    color: $DarkGreen;
+    text-align: center;
+    display: block;
+    line-height: 35px;
+    padding: 0 10px;
+    margin-top: -45px;
+    float: right;
+    transition: ease-in-out .5s;
+
+    svg{
+      width: 14px;
+      fill: $DarkGreen;
+      margin-right: 5px;
+      transition: ease-in-out .5s;
+    }
+    &:hover{
+      background: $DarkGreen;
+      color: $white;
+
+      svg{
+        fill: $white;
+      }
+    }
+  }
+  .segmentation {
+    display: flex;
+
+    .quartile {
+      width: 100%;
+      height: 88px;
+      padding: 16px 20px 16px 0;
+
+      &:not(:first-child) {
+        padding: 16px 20px;
+        border-left: 3.5px solid $gray2;
+      }
+      .divRange {
+        display: flex;
+        align-items: top;
+
+        .range {
+          width: 24px;
+          height: 24px;
+          background: $LightGreen;
+          border-radius: 5.4px;
+          color: $DarkGreen;
+          display: block;
+          font-family: $Figtree;
+          font-size: remcalc(16px);
+          font-weight: 500;
+          line-height: 24px;
+          margin-right: 8px;
+          margin-bottom: 8px;
+          text-align: center;
+        }
+      }
+
+      .percentile {
+        display: flex;
+        justify-content: space-between;
+
+        h3 {
+          color: $gray5;
+          font-family: $Figtree;
+          font-size: remcalc(20px);
+          font-weight: 700;
+          line-height: 1;
+          margin: 0 0;
+        }
+        h2 {
+          color: $gray3;
+          font-family: $Figtree;
+          font-size: remcalc(20px);
+          font-weight: 700;
+          line-height: 1;
+          margin: 0 0;
+        }
+      }
+    }
+  }
+}
+
+

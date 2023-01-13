@@ -1,0 +1,12 @@
+@import "../../styles/fonts.scss";
+@import "../../styles/variables.scss";
+
+.range{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg{
+        margin-left: 15px;
+    }
+}

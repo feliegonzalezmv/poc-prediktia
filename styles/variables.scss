@@ -1,0 +1,36 @@
+@function remcalc($size) {
+  $remSize: $size / 16px;
+  //Default font size on html element is 100%, equivalent to 16px;
+  @return #{$remSize}rem;
+}
+
+// Mixin that will include the fall back px declaration as well as the calculated rem value.
+@mixin fontSize($size) {
+  font-size: $size;
+  font-size: remcalc($size);
+}
+
+$bodybg: #F7F8FA;
+$Prediktia: #1F4B13;
+
+$white: #fff;
+$gray1: #F7F8FA;
+$gray2: #EFF0F4;
+$gray3: #AAA9B1;
+$gray4: #747181;
+$gray5: #3C3A45;
+
+//estados
+$MediumGreen: #CBFAEC;
+$HardGreen: #185543;
+$DarkGreen: #6AC6A7;
+$LightGreen: #EBFFF8;
+
+$Yellow: #FFC700;
+$LightYellow: #FFF5D3;
+
+$red: #FF6250;
+$LightRed: #FFEDEB;
+
+//fuentes
+$Figtree: 'Figtree';

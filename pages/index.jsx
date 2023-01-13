@@ -23,6 +23,7 @@ export default function What() {
   const [suggestionsSelected, setSuggestionsSelected] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [hasMoreItems, setHasMoreItems] = useState(true);
+  const [totals, setTotals] = useState({ totalSelected: 0, totalPrice: 0 });
 
   useEffect(() => {
     fetch("https://api.prediktia.io/quartiles")
@@ -61,25 +62,32 @@ export default function What() {
     setQuartiles(newQuartiles);
   };
 
-  const updateSuggestionsSelected = (sku, rank, instock_sku, instock_rank) => {
+  const updateSuggestionsSelected = (
+    sku,
+    rank,
+    price,
+    instock_sku,
+    instock_rank
+  ) => {
     const isInstockSkuSelected = suggestionsSelected?.some(
       (elem) => elem.instock_sku === instock_sku
     );
-
+    const selectedItemInfo = { sku, rank, price };
     let newSuggestionsSelected = [];
 
     if (suggestionsSelected && isInstockSkuSelected) {
       newSuggestionsSelected = suggestionsSelected?.map((suggestion) => {
         const item = suggestion;
+
         if (item.instock_sku === instock_sku) {
           if (item.selected) {
             if (item.selected.some((elem) => elem.sku === sku)) {
               item.selected = item.selected.filter((item) => item.sku !== sku);
             } else {
-              item.selected = [...item?.selected, { sku, rank }];
+              item.selected = [...item?.selected, selectedItemInfo];
             }
           } else {
-            item.selected = [{ sku, rank }];
+            item.selected = [selectedItemInfo];
           }
         }
         return item;
@@ -90,12 +98,7 @@ export default function What() {
         {
           instock_sku,
           instock_rank,
-          selected: [
-            {
-              sku,
-              rank,
-            },
-          ],
+          selected: [selectedItemInfo],
         },
       ];
     } else {
@@ -103,27 +106,43 @@ export default function What() {
         {
           instock_sku,
           instock_rank,
-          selected: [
-            {
-              sku,
-              rank,
-            },
-          ],
+          selected: [selectedItemInfo],
         },
       ];
     }
+
     setSuggestionsSelected(newSuggestionsSelected);
+    setTotals(calculateTotals(newSuggestionsSelected));
+  };
+
+  const calculateTotals = (suggestions) => {
+    const totalSelected = 0;
+    const totalPrice = 0;
+    suggestions?.forEach((suggestion) => {
+      let totalSku = 0;
+      totalSku = suggestion.selected.reduce(
+        (a, b) => ({
+          price: a.price + b.price,
+        }),
+        { price: 0 }
+      );
+      totalPrice = totalPrice + totalSku.price;
+      totalSelected = totalSelected + suggestion.selected.length;
+    });
+
+    return { totalSelected, totalPrice };
   };
 
   const onClickProduct = (
     sku,
     rank,
+    price,
     price_quartile,
     instock_sku,
     instock_rank
   ) => {
     updateQuartiles(sku, price_quartile);
-    updateSuggestionsSelected(sku, rank, instock_sku, instock_rank);
+    updateSuggestionsSelected(sku, rank, price, instock_sku, instock_rank);
   };
 
   const onClickAnalyzePrediktion = () => {
@@ -217,7 +236,7 @@ export default function What() {
         <>
           <div className="container">
             <div className="row">
-              <Quartiles data={quartiles} />
+              <Quartiles data={quartiles} totals={totals} />
             </div>
           </div>
 
@@ -421,6 +440,7 @@ export default function What() {
                                       onClickProduct(
                                         sku,
                                         rank,
+                                        price,
                                         price_quartile,
                                         suggestion.instock_sku,
                                         suggestion.instock_rank
